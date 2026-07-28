@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.6 on win32)" generated="2026-07-28T19:16:55.616474" rpa="true" schemaversion="5">
+<suite id="s1" name="Tasks" source="C:\QAx\projects\smartbit-robot\services\Tasks.robot">
+<test id="s1-t1" name="Testando a API" line="12">
+<kw name="Set User Token" owner="Service">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-28T19:16:55.779431" level="INFO">${payload} = {'email': 'sac@smartbit.com', 'password': 'pwd123'}</msg>
+<var>${payload}</var>
+<arg>email=sac@smartbit.com</arg>
+<arg>password=pwd123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-28T19:16:55.778739" elapsed="0.000748"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2026-07-28T19:17:00.091364" level="INFO">POST Request : url=http://localhost:3333/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.34.0', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '51', 'Content-Type': 'application/json'} 
+ body=b'{"email": "sac@smartbit.com", "password": "pwd123"}' 
+ </msg>
+<msg time="2026-07-28T19:17:00.091507" level="INFO">POST Response : url=http://localhost:3333/sessions 
+ status=200, reason=OK 
+ headers={'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Download-Options': 'noopen', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Access-Control-Allow-Origin': 'http://localhost:3000', 'Vary': 'Origin', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '213', 'ETag': 'W/"d5-5mMYQoSN37e6hGahL9poQ2BPRvY"', 'Date': 'Tue, 28 Jul 2026 22:17:00 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"user":{"id":1,"name":"Atendimento","email":"sac@smartbit.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg1Mjc3MDIwLCJleHAiOjE3ODU4ODE4MjB9.7Uur4gD-DqlGCUyHYSpC493Y0oNqdtufbfLxMvA1UOA"} 
+ </msg>
+<msg time="2026-07-28T19:17:00.091665" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>url=http://localhost:3333/sessions</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2026-07-28T19:16:55.779631" elapsed="4.312070"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-28T19:17:00.092603" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg1Mjc3MDIwLCJleHAiOjE3ODU4ODE4MjB9.7Uur4gD-DqlGCUyHYSpC493Y0oNqdtufbfLxMvA1UOA</msg>
+<var>${token}</var>
+<arg>Bearer ${resp.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-28T19:17:00.091861" elapsed="0.000785"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-07-28T19:17:00.093114" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg1Mjc3MDIwLCJleHAiOjE3ODU4ODE4MjB9.7Uur4gD-DqlGCUyHYSpC493Y0oNqdtufbfLxMvA1UOA</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-07-28T19:17:00.092775" elapsed="0.000389"/>
+</kw>
+<status status="PASS" start="2026-07-28T19:16:55.777676" elapsed="4.315561"/>
+</kw>
+<kw name="Get account by name" owner="Service">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-28T19:17:00.094358" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg1Mjc3MDIwLCJleHAiOjE3ODU4ODE4MjB9.7Uur4gD-DqlGCUyHYSpC493Y0oNqdtufbfLxMvA1UOA'}</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-28T19:17:00.093963" elapsed="0.000428"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-28T19:17:00.094865" level="INFO">${params} = {'name': 'Usuario medidas App'}</msg>
+<var>${params}</var>
+<arg>name=${name}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-28T19:17:00.094502" elapsed="0.000394"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-07-28T19:17:00.241865" level="INFO">GET Request : url=http://localhost:3333/accounts?name=Usuario+medidas+App 
+ path_url=/accounts?name=Usuario+medidas+App 
+ headers={'User-Agent': 'python-requests/2.34.0', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg1Mjc3MDIwLCJleHAiOjE3ODU4ODE4MjB9.7Uur4gD-DqlGCUyHYSpC493Y0oNqdtufbfLxMvA1UOA'} 
+ body=None 
+ </msg>
+<msg time="2026-07-28T19:17:00.242046" level="INFO">GET Response : url=http://localhost:3333/accounts?name=Usuario+medidas+App 
+ status=200, reason=OK 
+ headers={'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Download-Options': 'noopen', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Access-Control-Allow-Origin': 'http://localhost:3000', 'Vary': 'Origin', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '230', 'ETag': 'W/"e6-5Ax7U/x1Yo9GdA9RIFg5JH5gUro"', 'Date': 'Tue, 28 Jul 2026 22:17:00 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"data":[{"imc":29.4,"id":26,"name":"Usuario medidas App","email":"usermedidas@gmail.com","cpf":"46782633060","weight":"90.00","height":175,"createdAt":"2026-07-08T00:38:13.719Z","updatedAt":"2026-07-28T16:23:10.271Z"}],"total":1} 
+ </msg>
+<msg time="2026-07-28T19:17:00.242273" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>url=http://localhost:3333/accounts</arg>
+<arg>params=${params}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-07-28T19:17:00.095001" elapsed="0.147316"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-07-28T19:17:00.243241" level="INFO">{'data': [{'imc': 29.4, 'id': 26, 'name': 'Usuario medidas App', 'email': 'usermedidas@gmail.com', 'cpf': '46782633060', 'weight': '90.00', 'height': 175, 'createdAt': '2026-07-08T00:38:13.719Z', 'updatedAt': '2026-07-28T16:23:10.271Z'}], 'total': 1}</msg>
+<arg>${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-07-28T19:17:00.242493" elapsed="0.000816"/>
+</kw>
+<arg>Usuario medidas App</arg>
+<status status="PASS" start="2026-07-28T19:17:00.093653" elapsed="0.149737"/>
+</kw>
+<status status="PASS" start="2026-07-28T19:16:55.776911" elapsed="4.466898"/>
+</test>
+<doc>Arquivo para testar o consumo da API com tasks</doc>
+<status status="PASS" start="2026-07-28T19:16:55.618255" elapsed="4.626636"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tasks" id="s1" pass="1" fail="0" skip="0">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

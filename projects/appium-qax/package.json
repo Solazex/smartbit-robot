@@ -1,0 +1,24 @@
+{
+  "name": "appium-qax",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Pablo Michel",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "allowScripts": {
+    "appium@2.0.1": true,
+    "sharp@0.33.4": true,
+    "sharp@0.34.2": true
+  },
+  "devDependencies": {
+    "appium": "^2.19.0",
+    "appium-uiautomator2-driver": "^4.2.9"
+  },
+  "dependencies": {
+    "appium-doctor": "^1.16.2"
+  }
+}

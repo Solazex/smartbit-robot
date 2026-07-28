@@ -1,0 +1,42 @@
+{
+    "login": {
+        "account": {
+            "name":  "Pablo Login App",
+            "email": "pablologin@gmail.com",
+            "cpf":   "06764519005"
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": 2,
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Pablo Login App",
+            "month": "12",
+            "year": "2030",
+            "cvv": "123"
+        }
+    },
+        "update": {
+        "account": {
+            "name":  "Usuario medidas App",
+            "email": "usermedidas@gmail.com",
+            "cpf":   "46782633060",
+            "weight": 90,
+            "height": 175
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": 2,
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Usuario medidas App",
+            "month": "12",
+            "year": "2030",
+            "cvv": "123"
+        }
+    }
+}

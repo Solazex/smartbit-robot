@@ -1,0 +1,79 @@
+{
+    "create": {
+        "account": {
+            "name":  "Pablo Ramao",
+            "email": "pabloramao@gmail.com",
+            "cpf":   "78457679058"
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": 2,
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Pablo Ramao",
+            "month": "12",
+            "year": "2030",
+            "cvv": "123"
+        }
+    },
+    "duplicate": {
+        "account": {
+            "name":  "Bruce Banner",
+            "email": "hulk@gmail.com",
+            "cpf":   "25380751067"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price": 99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Bruce Banner",
+            "month": "12",
+            "year": "2030",
+            "cvv": "123"
+        }
+    },
+    "search": {
+        "account": {
+            "name":  "Tony Iommi",
+            "email": "Tony@gmail.com",
+            "cpf":   "98029568053"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price": 99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Tony Iommi",
+            "month": "12",
+            "year": "2030",
+            "cvv": "123"
+        }
+    },
+    "remove": {
+        "account": {
+            "name":  "Geezer Butler",
+            "email": "Geezer@gmail.com",
+            "cpf":   "55229243066"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price": 99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Geezer Butler",
+            "month": "12",
+            "year": "2030",
+            "cvv": "123"
+        }
+    }
+
+}

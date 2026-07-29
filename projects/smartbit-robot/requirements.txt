@@ -6,4 +6,5 @@ robotframework-assertion-engine==4.0.0
 robotframework-browser==19.14.2
 robotframework-jsonlibrary==0.5
 robotframework-requests==0.9.7
+python-dotenv==1.2.2
 
